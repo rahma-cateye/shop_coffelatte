@@ -1,0 +1,586 @@
+/* 1rem = 16px */
+
+:root {
+  --primary: #b6895b;
+  --secondc: rgb(63, 35, 16);
+  --bg: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: white;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.7rem 7%;
+  background-color: rgb(1, 1, 1, 0.7);
+  border-bottom: 1px solid #513c28;
+  /* agar saat discroll tetap di tempat */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* semakin tinggi nilai nya semakin di atas pula posisinya */
+  z-index: 9999;
+  backdrop-filter: blur(1.5rem);
+  height: 7rem;
+}
+
+.navbar .navbar-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  font-style: italic;
+}
+
+.navbar .navbar-logo span {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a {
+  color: white;
+  /*  inline (berada di baris yang sama dengan elemen lain) */
+  display: inline-block;
+  font-size: 1.3rem;
+  margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  /* display: block mengambil lebar penuh dari kontainer induknya, dan elemen baru akan memulai di barisan baru yang akan ditampilkan di bawahnya bukan di samping */
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.navbar .navbar-extra {
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.navbar .navbar-extra div {
+  display: flex;
+}
+
+.navbar .navbar-extra a {
+  color: white;
+  margin: 0 0.6rem;
+}
+
+.navbar .navbar-extra a:hover {
+  color: var(--primary);
+}
+
+.search-menu {
+  background-color: none;
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+
+/* HERO SECTION */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url(./img/coffee-photos.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  bottom: 0;
+  background: linear-gradient(0deg,
+      rgba(1, 1, 3, 1) 1%,
+      rgba(255, 255, 255, 0) 50%);
+}
+
+.hero .content {
+  padding: 1.4rem 7%;
+  max-width: 60rem;
+}
+
+.hero .content h1 {
+  font-size: 5em;
+  color: white;
+  text-shadow: 1px 1px 10px rgba(1, 1, 3, 0.9);
+  line-height: 1.4;
+}
+
+.hero .content h1 span {
+  color: var(--primary);
+}
+
+.hero .content p {
+  font-size: 1.6rem;
+  margin-top: 1rem;
+  line-height: 1.6;
+  font-weight: 200;
+  text-shadow: 1px 1px 10px rgba(1, 1, 3, 0.9);
+  /* mix-blend-mode: difference; */
+}
+
+.hero .content .cta {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  color: white;
+  background-color: var(--primary);
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+}
+
+/* ABOUT SECTION */
+.about,
+.menu,
+.contact {
+  padding: 8.2rem 7% 1.4rem;
+}
+
+.about h2,
+.menu h2,
+.contact h2 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.about h2 {
+  margin-bottom: 4rem;
+}
+
+.menu h2,
+.contact h2 {
+  margin-bottom: 2.7rem;
+}
+
+.about h2 span,
+.menu h2 span,
+.contact h2 span {
+  color: var(--primary);
+}
+
+.about .row {
+  display: flex;
+}
+
+.about .row .about-img {
+  flex: 1 1 45rem;
+}
+
+.about .row .about-img img {
+  width: 100%;
+  border-radius: 1.7rem;
+}
+
+.about .row .content {
+  flex: 1 1 40rem;
+  padding: 0 2.5rem;
+}
+
+.about .row .content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.about .row .content p {
+  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+  font-weight: 100;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* MENU SECTION */
+.p-intro,
+.menu .available p {
+  text-align: center;
+  margin: auto;
+  font-size: 1.3rem;
+  font-weight: 100;
+  line-height: 1.6;
+  max-width: 35rem;
+}
+
+.menu .available {
+  margin-top: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.menu .available .menu-card {
+  text-align: center;
+  margin-bottom: 4.3rem;
+  /* border: white solid 2px; */
+}
+
+.menu .available .menu-card .menu-card-img {
+  width: 60%;
+  border-radius: 50%;
+  box-shadow: rgba(255, 208, 1, 0.192) 0 0 9rem;
+}
+
+.menu .available .menu-card .menu-card-title {
+  margin: 1.8rem auto 0.5rem;
+  font-size: 1.33rem;
+  font-family: "Playfair Display", Poppins;
+}
+
+.menu .available .menu-card .menu-card-price {
+  font-style: italic;
+}
+
+/* CONTACT SECTION */
+.contact .form-maps {
+  background-color: #222;
+  margin-top: 5rem;
+  display: flex;
+  border-radius: 5rem;
+}
+
+.contact .form-maps .maps {
+  flex: 1 1 45rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5rem 0 0 5rem;
+}
+
+.contact .form-maps form {
+  flex: 1 1 45rem;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.contact .form-maps form .input-group {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: var(--bg);
+  border: 1px solid #eee;
+  border-radius: 5rem;
+  padding: 0 2rem;
+}
+
+.contact .form-maps form .input-group input {
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.5rem;
+  background-color: var(--bg);
+  color: #eee;
+}
+
+.contact .form-maps form .btn {
+  margin-top: 3rem;
+  padding: 1.3rem 3rem;
+  border-radius: 4rem;
+  font-size: 1.7rem;
+  background-color: var(--primary);
+  color: #eee;
+  cursor: pointer;
+}
+
+.contact .form-maps form .btn:hover {
+  text-shadow: #222 1px 1px 3px;
+}
+
+/* FOOTER SECTION */
+footer {
+  margin-top: 5rem;
+  background-color: var(--primary);
+  padding: 3rem 0;
+  text-align: center;
+}
+
+footer .socials {
+  padding: 2rem 0;
+}
+
+footer .socials a {
+  margin: 1rem;
+  color: #eee;
+}
+
+footer .socials a:hover,
+footer .link a:hover {
+  color: var(--bg);
+}
+
+footer .link {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+footer .link a {
+  color: #eee;
+  padding: 0.7rem 1rem;
+}
+
+footer .credit {
+  margin: 1.5rem 0 1rem 0;
+}
+
+footer .credit a {
+  color: var(--bg);
+}
+
+/* Search Form Section */
+.navbar .search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.164);
+  border-radius: 7rem;
+  text-align: left;
+  transform-origin: right;
+  transition: 0.2s ease-in-out;
+  top: 100%;
+  right: 1%;
+  width: 0;
+  height: 0;
+  border: 2px solid;
+  transform: scaleX(0);
+}
+
+.navbar .search-form.active {
+  transform: scaleX(1);
+  width: 28rem;
+  height: 3.5rem;
+}
+
+.navbar .navbar-extra .search-form input {
+  width: 80%;
+  height: 100%;
+  color: white;
+  padding: 0 1rem;
+  border-radius: 7rem 0 0 7rem;
+  font-size: 1.6rem;
+  background: transparent;
+}
+
+.navbar .navbar-extra .search-form .search-menu-input {
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 7rem 7rem 0;
+  height: 100%;
+  width: 20%;
+  margin: 0;
+}
+
+.navbar .search-form input,
+.navbar .search-form .search-menu-input {
+  box-sizing: border-box;
+}
+
+.navbar .search-form label {
+  background: none;
+  color: var(--bg);
+  cursor: pointer;
+  margin-right: 1.5rem;
+  font-size: 0.5rem;
+}
+
+/* MEDIA QUERIS */
+
+/* tv */
+@media (min-width: 1810px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+/* desktop */
+@media (max-width: 1800px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* laptop */
+@media (max-width: 1024px) {
+  html {
+    font-size: 60%;
+  }
+
+  /* .about .row {
+    flex-wrap: wrap;
+  } */
+
+  .about .row .about-img img {
+    height: 24rem;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .navbar .search-form.active {
+    width: 24rem;
+  }
+}
+
+/* tablet*/
+@media (max-width: 800px) {
+  html {
+    font-size: 55%;
+  }
+
+  #hamburger-menu {
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    height: 100vh;
+    width: 30rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: 0.3s;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-nav a {
+    display: block;
+    color: var(--bg);
+    padding: 0.5rem;
+    margin: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.2);
+  }
+
+  .navbar .search-form.active {
+    width: 55%;
+  }
+
+  .navbar .navbar-extra {
+    justify-content: right;
+  }
+
+  .about .row {
+    flex-wrap: wrap;
+  }
+
+  .about .row .content {
+    padding: 0;
+  }
+
+  .about .row .content h3 {
+    margin-top: 1.3rem;
+    margin-bottom: 1.3rem;
+    font-size: 2rem;
+  }
+
+  .about .row .content p {
+    font-size: 1.6rem;
+  }
+
+  .menu p,
+  .menu .available .menu-card .menu-card-title,
+  .menu .available .menu-card .menu-card-price {
+    font-size: 1.6rem;
+  }
+
+  .contact .form-maps {
+    flex-wrap: wrap;
+    border-radius: 5rem;
+  }
+
+  .contact .form-maps .maps {
+    border-radius: 5rem 5rem 0 0;
+  }
+
+  .contact .form-maps .maps {
+    height: 30rem;
+  }
+
+  .contact .form-maps form {
+    padding-top: 0.5rem;
+  }
+}
+
+/* mobile M */
+@media (max-width: 400px) {
+  .navbar .search-form {
+    position: absolute;
+    transform-origin: top;
+    top: 104%;
+    right: 0.5%;
+    left: 0.5%;
+    width: 100%;
+    height: 3.5rem;
+    transform: scaleY(0);
+    background-color: white;
+    border: none;
+  }
+  
+  .navbar .search-form.active {
+    transform: scaleY(1);
+    width: 100%;
+    height: 3.5rem;
+  }
+
+  .navbar .navbar-extra .search-form .search-menu-input {
+    color: black;
+  }
+
+  .navbar .navbar-extra .search-form input {
+    color: black;
+  }
+}
+
+/* Relative: Mempertahankan posisi normal, 
+tetapi dapat digeser dari posisi tersebut.
+
+Absolute: Dikeluarkan dari aliran dokumen 
+dan posisinya tergantung pada elemen terdekat 
+yang diposisikan.
+
+Fixed: Dikeluarkan dari aliran dokumen dan 
+posisinya tetap pada viewport, tidak terpengaruh 
+oleh scroll. */
