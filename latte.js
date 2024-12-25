@@ -1,27 +1,33 @@
 // TOGGLE CLASS ACTIVE
-const navbarNav = document.querySelector('.navbar-nav');
-const searchForm = document.querySelector('.search-form');
-const hamburger = document.querySelector('#hamburger-menu');
-const search = document.querySelector('#search-menu');
-const navbar = document.querySelector('.navbar');
-
 // ketika hamburger menu di click sidebar muncul
+const navbarNav = document.querySelector('.navbar-nav');
+
 document.querySelector('#hamburger-menu').onclick = () => {
     navbarNav.classList.toggle('active');
 };
 
-document.querySelector('#search-menu').onclick = () => {
-    searchForm.classList.toggle('active');
-};
-
 // click di luar sidebar untuk menghilangkan sidebar 
+const hamburger = document.querySelector('#hamburger-menu');
+
 document.addEventListener('click', function(e) {
     if ((!hamburger.contains(e.target) && !navbarNav.contains(e.target)) 
     )
     { navbarNav.classList.remove('active');}
 });
 
+// toggle class active search form
+const searchForm = document.querySelector('.search-form');
+const searchBox = document.querySelector('#search-box');
+
+document.querySelector('#search-menu').onclick = (e) => {
+    searchForm.classList.toggle('active');
+    searchBox.focus();
+    e.preventDefault();
+};
+
 // searchform menghilang ketika hamburger menu di click
+const searchMenu = document.querySelector('#search-menu');
+
 function handleScreenSizeChange(e) {
     if (e.matches) {
         document.addEventListener('click', handleOutsideClick);
@@ -31,7 +37,9 @@ function handleScreenSizeChange(e) {
 }
 
 function handleOutsideClick(e) {
-    if ((hamburger.contains(e.target))) {
+    if (!searchForm || !searchMenu) return;
+
+    if (!searchForm.contains(e.target) && !searchMenu.contains(e.target)) {
         searchForm.classList.remove('active');
     }
 }
