@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setengah Warna Ikon</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    .icon-container {
+      position: relative;
+      display: inline-block;
+      font-size: 50px;
+      color: gray; /* Warna dasar ikon */
+    }
+
+    .icon-container::before {
+      content: '\f005'; /* Kode Unicode untuk ikon Font Awesome bintang */
+      font-family: "Font Awesome 5 Free"; /* Font Awesome */
+      font-weight: 900;
+      color: gold; /* Warna setengah isi */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%; /* Hanya setengah bagian diisi warna */
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <span class="icon-container"></span>
+</body>
+</html>
